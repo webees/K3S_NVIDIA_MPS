@@ -99,6 +99,11 @@ EOF
 
 # Rancher
 ```
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+helm version
+```
+
+```
 # If you have installed the CRDs manually instead of with the `--set installCRDs=true` option added to your Helm install command, you should upgrade your CRD resources before upgrading the Helm chart:
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.crds.yaml
 
@@ -113,8 +118,17 @@ helm install cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
   --version v1.7.1
-  
+```
+
+```
+helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
+helm repo update
+
+echo "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml" >> ~/.bash_profile
+source .bash_profile
+
 kubectl create namespace cattle-system
+
 helm install rancher rancher-stable/rancher \
   --namespace cattle-system \
   --set hostname=rancher.x.run \
