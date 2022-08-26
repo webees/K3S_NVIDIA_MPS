@@ -40,7 +40,6 @@ metadata:
   name: nvidia-device-plugin-daemonset
   namespace: kube-system
 spec:
-  runtimeClassName: nvidia # Added 😈
   selector:
     matchLabels:
       name: nvidia-device-plugin-ds
@@ -51,6 +50,7 @@ spec:
       labels:
         name: nvidia-device-plugin-ds
     spec:
+      runtimeClassName: nvidia # Added 😈
       tolerations:
       - key: nvidia.com/gpu
         operator: Exists
