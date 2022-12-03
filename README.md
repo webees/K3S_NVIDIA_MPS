@@ -6,6 +6,8 @@ curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-
 
 sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 
+sudo add-apt-repository ppa:graphics-drivers/ppa && sudo apt-get update
+
 lspci | grep -i nvidia
 ubuntu-drivers devices
 ubuntu-drivers autoinstall
