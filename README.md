@@ -87,22 +87,33 @@ EOF
 # TEST
 ```
 cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: nvidia
+  name: nvidia-deployment
+  namespace: default
 spec:
-  runtimeClassName: nvidia
-  restartPolicy: Never
-  containers:
-    - name: nvidia
-      image: "nvidia/cuda:11.7.0-base-ubuntu20.04"
-      command: [ "/bin/bash", "-c","--"]
-      args: [ "while true; do sleep 30; done;" ]
-      resources:
-        limits:
-          nvidia.com/gpu: 1
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nvidia
+  template:
+    metadata:
+      labels:
+        app: nvidia
+    spec:
+      runtimeClassName: nvidia
+      restartPolicy: Always
+      containers:
+        - name: nvidia
+          image: "nvidia/cuda:12.6.1-base-ubuntu22.04"
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 30; done;" ]
+          resources:
+            limits:
+              nvidia.com/gpu: 1
 EOF
+
 ```
 
 # Rancher
