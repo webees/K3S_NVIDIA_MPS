@@ -39,7 +39,7 @@ EOF
 
 # Enabling GPU Support in K3s
 ```
-# kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.12.2/nvidia-device-plugin.yml
+# kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.16.1/nvidia-device-plugin.yml
 
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
