@@ -1,6 +1,7 @@
 # MPS Support in the Kubernetes GPU Device Plugin
--  https://docs.google.com/document/d/1H-ddA11laPQf_1olwXRjEDbzNihxprjPr74pZ4Vdf2M/edit?usp=sharingmps
-
+- https://docs.google.com/document/d/1H-ddA11laPQf_1olwXRjEDbzNihxprjPr74pZ4Vdf2M/edit?usp=sharingmps
+- https://docs.nvidia.com/deploy/mps/index.html
+- https://docs.google.com/document/d/1xZrrMBJV00VxW9XK8AMXU0QT01JGqn-xhGwexenhPSE/edit#heading=h.jw5js7865egx
 
 # Install Drivers
 ```
@@ -22,11 +23,6 @@ nvidia-smi
 ```
 /usr/local/bin/k3s-uninstall.sh
 /usr/local/bin/k3s-agent-uninstall.sh
-```
-
-# Install K3s
-```
-curl -sfL https://get.k3s.io | sh -
 ```
 
 # Add a RuntimeClass:
